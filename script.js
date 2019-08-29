@@ -24,26 +24,32 @@ let start = function() {
     start();
 
 
-let ExpensesMonth = function getExpensesMonth() {
+let expensesMonth = function getExpensesMonth() {
     let sum = 0;
-
+        
     for (let i = 0; i < 2; i++){
-        sum += +prompt('Во сколько это обойдется?', 5000)
-    }
-    return sum;
+        while(isNaN(sum) || sum === ''|| sum === null) {
+        sum = prompt('Во сколько это обойдется?', '');
+    
+    };
+        sum += +prompt('Во сколько это обойдется?', '');
 };
+    return sum;
 
+};
+   
+    
 
 let accumulatedMonth = function getAccumulatedMonth() {
-    return money - ExpensesMonth();
+    return money - expensesMonth();
 };
-console.log(accumulatedMonth());
+// console.log(accumulatedMonth());
 
 
-let TargetMonth = function getTargetMonth() {
+let targetMonth = function getTargetMonth() {
     return mission/accumulatedMonth();
 };
-console.log(Math.floor(TargetMonth()));
+console.log(Math.floor(targetMonth()));
 
 
 let showTypeOf = function(data) {
