@@ -48,22 +48,45 @@ let appData = {
         appData.expenses[expens] = +cost;
     }
 },
+getExpensesMonth: function() {
+    for (let key in appData.expenses) {
+        appData.expensesMonth += +appData.expenses[key];
+    }
+},
+getBudget: function() {
+    appData.budgetMonth = +(money-appData.expensesMonth),
+    appData.budgetDay = Math.floor(appData.budgetMonth/30),
+    appData.period = Math.ceil(+(appData.mission/appData.budgetMonth));
+},
+getStatusIncome: function() {
+    if (appData.budgetDay >= 800) {
+        console.log('Высокий уровень дохода');
+    } else if ((appData.budgetDay >= 300) && (appData.budgetDay < 800)) {
+        console.log('Средний уровень дохода');
+    } else if ((appData.budgetDay >= 0) && (appData.budgetDay < 300)) {
+        console.log('Низкий уровень дохода');
+    } else {
+        console.log('Что то пошло не так');
+    }
+},
 };
+
 appData.asking();
-console.log(appData);
+appData.getBudget();
+appData.getStatusIncome();
+appData.getExpensesMonth();
 
+    console.log('Расходы за месяц:', appData.expensesMonth);
 
-for (let key in appData.expenses) {
-    appData.expensesMonth += +appData.expenses[key];
-}
+    console.log('Цель будет достигнута за', appData.period + ' месяцев');
 
-let expensesMonth = appData.expensesMonth;
-    console.log('Расходы за месяц:', expensesMonth);
+    for (let key in appData) {
+        console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key]);
+    }
 
-
-appData.getBudget = function() {
-    return money - expensesMonth;
-};
+// appData.getBudget = function() {
+//     return money - expensesMonth;
+// };
     // console.log('Накопления:', appData.getBudget());
 
 
@@ -77,28 +100,16 @@ appData.getBudget = function() {
 // };
 
 
-appData.getBudget = function() {
-    appData.budgetMonth = +(money-expensesMonth),
-    appData.budgetDay = Math.floor(appData.budgetMonth/30),
-    appData.period = Math.ceil((appData.mission/appData.budgetMonth)+'');
-};
-    appData.getBudget();
-    console.log('Цель будет достигнута за', appData.period + ' месяцев');
+
+    
+    
     
 
-appData.getStatusIncome = function() {
-    if (appData.budgetDay >= 800) {
-        console.log('Высокий уровень дохода');
-    } else if ((appData.budgetDay >= 300) && (appData.budgetDay < 800)) {
-        console.log('Средний уровень дохода');
-    } else if ((appData.budgetDay >= 0) && (appData.budgetDay < 300)) {
-        console.log('Низкий уровень дохода');
-    } else {
-        console.log('Что то пошло не так');
-    }
-};
-appData.getStatusIncome();
 
-for (let key in appData) {
-    console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key]);
-}
+
+
+
+
+
+
+
