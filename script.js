@@ -40,8 +40,13 @@ let appData = {
 
 
 
-    let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'квартплата, доп.занятия, проезд');
-        appData.addExpenses = (addExpenses.charAt(0).toUpperCase() + addExpenses.slice(1)).split(', ');
+    let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'квартплата,доп.занятия,проезд');
+    appData.addExpenses = addExpenses.split(',');
+    for (let i = 0; i < appData.addExpenses.length;  i++) {
+        appData.addExpenses[i] = appData.addExpenses[i].charAt(0).toUpperCase() + appData.addExpenses[i].slice(1);
+    }
+    console.log(appData.addExpenses.join(', '));
+        
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
 
     let sum = 0,
@@ -109,8 +114,8 @@ calcSavedMoney: function() {
 };
 
 appData.asking();
-appData.getBudget();
 appData.getStatusIncome();
+appData.getBudget();
 appData.getExpensesMonth();
 appData.getInfoDeposit();
 appData.calcSavedMoney();
@@ -119,9 +124,9 @@ appData.calcSavedMoney();
 
     console.log('Цель будет достигнута за', appData.period + ' месяцев');
 
-    console.log('appData.addExpenses: ', appData.addExpenses);
+    // console.log('appData.addExpenses: ', appData.addExpenses);
 
-    // for (let key in appData) {
+    // // for (let key in appData) {
     //     console.log('Наша программа включает в себя данные: ' + key + ': ' + appData[key]);
     // }
 
