@@ -45,7 +45,7 @@ let start = document.getElementById('start'),
     };
 
     AppData.prototype.start = function () {
-                
+         
         this.budget = +salaryAmmount.value;
 
         this.getExpenses();
@@ -199,10 +199,10 @@ AppData.prototype.eventListeners = function(){
         }
     });
 
-    start.addEventListener('click', start.bind(AppData));
-    cancel.addEventListener('click', reset.bind(AppData));
-    expensPlus.addEventListener('click', addExpensesBlock.bind(AppData));
-    incomePlus.addEventListener('click', addIncomeBlock.bind(AppData));
+    start.addEventListener('click', start.bind(appData));
+    cancel.addEventListener('click', reset.bind(appData));
+    expensPlus.addEventListener('click', addExpensesBlock.bind(appData));
+    incomePlus.addEventListener('click', addIncomeBlock.bind(appData));
 
 
 };
@@ -210,6 +210,6 @@ AppData.prototype.eventListeners = function(){
 
    const appData = new AppData();
    console.log(appData);
- 
-   
+   appData.eventListeners(); 
+  
     
