@@ -4,7 +4,7 @@ const DomElement = function(options, text) {
 
 this.selector = options.selector;
 this.height = options.height;
-this.widht = options.widht;
+this.width = options.width;
 this.bg = options.bg;
 this.fontSize = options.fontSize;
 this.text = text;
@@ -12,23 +12,23 @@ this.text = text;
 
 DomElement.prototype.newFunk = function() {
     if (this.selector[0] === '.') {
-        const div = document.newFunk('div');
-        div.style.cssText = 'px; height:' + this.height + 'widht:' + this.widht + ';background:' + this.bg + '; font-size:' + this.fontSize;
+        const div = document.createElement('div');
+        div.style.cssText = 'px; height:' + this.height + 'width:' + this.width + ';background:' + this.bg + '; font-size:' + this.fontSize;
         div.textContent = this.text;
         document.body.appendChild(div);
     };
     if (this.selector[0] === '#') {
-        const div = document.newfunk('p');
-        p.style.cssText = 'height:' + this.height + 'px; widht:' + this.widht + ';background:' + this.bg + '; font-size:' + this.fontSize;
+        const p = document.createElement('p');
+        p.style.cssText = 'height:' + this.height + 'px; width:' + this.width + ';background:' + this.bg + '; font-size:' + this.fontSize;
         p.textContent = this.text;
         document.body.appendChild(p);
     };
 };
 
 const domElemOpt = {
-    selector: '.carBig',
+    selector: '#carBig',
     height: 200,
-    widht: '300px',
+    width: '300px',
     bg: 'yellow',
     fontSize: '30px'
 };
