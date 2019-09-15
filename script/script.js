@@ -272,7 +272,7 @@ let start = document.getElementById(`start`),
         if(depositCheck.checked){
             depositBank.style.display = `inline-block`;
             depositAmount.style.display = `inline-block`;
-            appData.deposit = true;
+            this.deposit = true;
             depositBank.addEventListener(`change`, function() {
                 let selectIndex = this.options[this.selectedIndex].value;
                 if(selectIndex === `other`){
@@ -287,7 +287,7 @@ let start = document.getElementById(`start`),
             depositBank.style.display = `none`;
             depositAmount.style.display = `none`;
             depositAmount.value = ``;
-            appData.deposit = false;
+            this.deposit = false;
         };
     }
 
