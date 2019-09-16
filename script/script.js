@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', function(){
     function countTimer(deadline) {
         let timerHours = document.querySelector('#timer-hours'),
              timerMinutes = document.querySelector('#timer-minutes'),
-             timerSeconds = document.querySelector('#timer-seconds');
+             timerSeconds = document.querySelector('#timer-seconds'),
+             interval;
 
         function getTimeRemaining() {
              let dateStop = new Date(deadline).getTime(),
@@ -19,13 +20,23 @@ window.addEventListener('DOMContentLoaded', function(){
 
         function updateClock() {
             let timer = getTimeRemaining();
-
-             timerHours.textContent = timer.hours;
-             timerMinutes.textContent = timer.minutes;
-             timerSeconds.textContent = timer.seconds;
+          
+            (timer.hours >= 10) ? timerHours.textContent = timer.hours : timerHours.textContent = '0' + timer.hours;
+            ( timer.minutes >= 10) ? timerMinutes.textContent = timer.minutes : timerMinutes.textContent = '0' + timer.minutes;
+            (timer.seconds >= 10) ? timerSeconds.textContent = timer.seconds : timerSeconds.textContent = '0' + timer.seconds;
+             
             
-             if (timer.timeRemaining > 0) {
+             let interval = timer.timeRemaining;
+             if (interval > 0) {
             setInterval(updateClock, 1000);
+            } else if (interval <= 0) {
+                 clearInterval(interval);
+                 timerHours.textContent = '00';
+                 timerMinutes.textContent ='00';
+                 timerSeconds.textContent = '00';
+                 timerHours.style.color = 'red';
+                 timerMinutes.style.color ='red'
+                 timerSeconds.style.color = 'red';
             }
 
         }
@@ -33,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function(){
         updateClock();
   };
 
-
-     setInterval(countTimer, 1000, '16 september 2019 02:00:00')
+ 
+     countTimer('16 september 2019');
 
 });
