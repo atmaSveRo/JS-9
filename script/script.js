@@ -47,4 +47,56 @@ window.addEventListener('DOMContentLoaded', function(){
  
      countTimer('16 september 2019');
 
+     // меню
+     const toggleMenu = () => {
+
+          const btnMenu = document.querySelector('.menu'),
+                    menu = document.querySelector('menu'),
+                    closeBtn = document.querySelector('.close-btn'),
+                    menuItems = menu.querySelectorAll('ul>li');
+
+          const handlerMenu = () => {
+               menu.classList.toggle('active-menu')
+          };
+          btnMenu.addEventListener('click', handlerMenu);
+          closeBtn.addEventListener('click', handlerMenu );
+
+          menuItems.forEach((elem) => {elem.addEventListener('click', handlerMenu)});
+
+     };
+
+     toggleMenu();
+
+     // popup
+
+     const togglePopup = () => {
+          const popup = document.querySelector('.popup'),
+                    popupBtn = document.querySelectorAll('.popup-btn'),
+                    popupClose = document.querySelector('.popup-close'),
+                    popupContent = document.querySelector('.popup-content');
+                    popupBtn.forEach((elem) => {
+                         elem.addEventListener('click', () => {
+                              popup.style.display = 'block';
+                              if (screen.width >= 720) {
+                              popupContent.style.opacity ="0.5";
+                              setTimeout(function(){
+                                   popupContent.style.opacity ="1";
+                              }, 2000);
+                         } else {
+                              popupContent.style.opacity ="1";
+                              clearInterval();
+                         }
+                                                       
+                         });
+                    });
+          
+          popupClose.addEventListener('click', () => {
+               popup.style.display = 'none';
+          });
+
+
+     };
+
+     togglePopup();
+
 });
