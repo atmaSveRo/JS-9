@@ -5,8 +5,7 @@ window.addEventListener('DOMContentLoaded', function(){
     function countTimer(deadline) {
         let timerHours = document.querySelector('#timer-hours'),
              timerMinutes = document.querySelector('#timer-minutes'),
-             timerSeconds = document.querySelector('#timer-seconds'),
-             interval;
+             timerSeconds = document.querySelector('#timer-seconds');
 
         function getTimeRemaining() {
              let dateStop = new Date(deadline).getTime(),
@@ -19,17 +18,15 @@ window.addEventListener('DOMContentLoaded', function(){
              }
 
         function updateClock() {
+             console.log('ddd');
+             
             let timer = getTimeRemaining();
           
             (timer.hours >= 10) ? timerHours.textContent = timer.hours : timerHours.textContent = '0' + timer.hours;
             ( timer.minutes >= 10) ? timerMinutes.textContent = timer.minutes : timerMinutes.textContent = '0' + timer.minutes;
             (timer.seconds >= 10) ? timerSeconds.textContent = timer.seconds : timerSeconds.textContent = '0' + timer.seconds;
              
-            
-             let interval = timer.timeRemaining;
-             if (interval > 0) {
-            setInterval(updateClock, 1000);
-            } else if (interval <= 0) {
+             if(timer.timeRemaining <= 0) {
                  clearInterval(interval);
                  timerHours.textContent = '00';
                  timerMinutes.textContent ='00';
@@ -41,10 +38,10 @@ window.addEventListener('DOMContentLoaded', function(){
 
         }
 
-        updateClock();
+        let interval = setInterval(updateClock, 1000);
   };
 
  
-     countTimer('16 september 2019');
+     countTimer('18 september 2019');
 
 });
