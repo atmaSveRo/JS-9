@@ -177,8 +177,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
           const addDots = () => {
 
-               const dot = document.createElement('li');
-               dot.className = 'dot';
                for (i = 0; i < slide.length; i++) {
                     const dot = document.createElement('li');
                     dot.className = 'dot';
@@ -191,7 +189,8 @@ window.addEventListener('DOMContentLoaded', function(){
           addDots();
 
           let currentSlide = 0,
-               interval;
+               interval,
+               dot = document.querySelectorAll('.dot');
 
           const prevSlide = (elem, index, strClass) => {
                elem[index].classList.remove(strClass);
@@ -204,13 +203,13 @@ window.addEventListener('DOMContentLoaded', function(){
           const autoPlaySlide = () => {
 
                prevSlide(slide, currentSlide, 'portfolio-item-active');
-               prevSlide(ul, currentSlide, 'dot-active');
+               prevSlide(dot, currentSlide, 'dot-active');
                currentSlide++;
                if (currentSlide >= slide.length) {
                     currentSlide = 0;
                }
                nextSlide(slide, currentSlide, 'portfolio-item-active');
-               nextSlide(ul, currentSlide, 'dot-active');
+               nextSlide(dot, currentSlide, 'dot-active');
 
           };
 
@@ -232,7 +231,7 @@ window.addEventListener('DOMContentLoaded', function(){
                }
 
                prevSlide(slide, currentSlide, 'portfolio-item-active');
-               prevSlide(ul, currentSlide, 'dot-active');
+               prevSlide(dot, currentSlide, 'dot-active');
 
                if (target.matches('#arrow-right')) {
                     currentSlide++;
@@ -254,7 +253,7 @@ window.addEventListener('DOMContentLoaded', function(){
                     currentSlide = slide.length -1;
                }
                nextSlide(slide, currentSlide, 'portfolio-item-active');
-               // nextSlide(dot, currentSlide, 'dot-active');
+               nextSlide(dot, currentSlide, 'dot-active');
 
           });
 
