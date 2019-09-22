@@ -277,34 +277,56 @@ window.addEventListener('DOMContentLoaded', function(){
 
      //our command
 
-     const command = () => {
+     const commandChangePhoto = () => {
 
-          const header = document.getElementById('command'),
-               img = header.querySelectorAll('img');
+     const commandPhoto = document.querySelector('.command');
 
+     changePhoto = (target) => {
 
-
-          changeImg = () => {
-               let src = img.src;
-               
-          }
-               
-               console.log('src: ', src);
-
-          // let 
-
-          // for (let i = 0; i < img.length; i++) {
-
-          //      img[i].addEventListener('mouseover', (e) => {
-          //          event.target.src = event.target.dataset.img;
-          //           });
-
-          //      img[i].addEventListener('mouseout', (e) => {
-          //                event.target.img = event.target.dataset.src;
-          //           });
-          // }
-
-   
+          let defaultSrc = target.src;
+          target.src = target.dataset.img;
+          target.dataset.img = defaultSrc;
      };
-     command();
+
+     commandPhoto.addEventListener('mouseover', (e) => {
+          target = e.target;
+          target = target.closest('.command__photo');
+          if (target) {
+               changePhoto(target);
+          }
+
+          
+     });
+
+     commandPhoto.addEventListener('mouseout', (e) => {
+          target = e.target;
+          target = target.closest('.command__photo');
+          if (target) {
+               changePhoto(target);
+          }
+
+          
+     });
+
+     };
+
+     commandChangePhoto();
+
+     //calc
+
+     const calc = () => {
+
+          const calcBlock = document.querySelector('.calc-block'),
+               input = calcBlock.querySelectorAll('input');
+
+          input.forEach((item) => {
+               item.addEventListener('input', () => {
+                    item.value = item.value.replace(/\D/g, '');
+               });
+                
+          });
+
+     };
+     calc();
 });
+
