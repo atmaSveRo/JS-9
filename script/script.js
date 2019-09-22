@@ -359,15 +359,35 @@ window.addEventListener('DOMContentLoaded', function(){
                     dayValue *= 1.5
                }
                
-               
+
                if (typeValue && squareValue) {
                     total = price * typeValue * squareValue * countValue * dayValue;
                }
 
                totalValue.textContent = total;
 
+          const animateValue = (id, speed) => {
+               
+               let current = 0,
+                    increment = speed,
+                    total = id,
+                    timer = setInterval(() => {
+                         current += increment;
+                    
+                         totalValue.textContent = current;
+                         if (current >= total) {
+                              clearInterval(timer);
+                         totalValue.textContent = total;
+                         }
+                    }, 100);
+
+          };
+     
+          animateValue(total, 100)
+
           };     
 
+        
 
           calcBlock.addEventListener('change', (event) => {
                const target = event.target;
