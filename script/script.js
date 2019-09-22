@@ -275,4 +275,36 @@ window.addEventListener('DOMContentLoaded', function(){
 
      slider();
 
+     //our command
+
+     const command = () => {
+
+          const header = document.getElementById('command'),
+               img = header.querySelectorAll('img');
+
+
+
+          changeImg = () => {
+               let src = img.src;
+               
+          }
+               
+               console.log('src: ', src);
+
+          // let 
+
+          // for (let i = 0; i < img.length; i++) {
+
+          //      img[i].addEventListener('mouseover', (e) => {
+          //          event.target.src = event.target.dataset.img;
+          //           });
+
+          //      img[i].addEventListener('mouseout', (e) => {
+          //                event.target.img = event.target.dataset.src;
+          //           });
+          // }
+
+   
+     };
+     command();
 });
