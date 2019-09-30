@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function(){
          updateClock();
       };
    
-      countTimer('01 october 2019');
+      countTimer('02 october 2019');
  
       // меню
       const toggleMenu = () => {
@@ -429,50 +429,56 @@ window.addEventListener('DOMContentLoaded', function(){
                 const formData = new FormData(form);
  
                 let body = {};
+                formData.forEach((val, key) => {
+                    body[key] = val;
+                });
  
                 // for (let value of formData.entries()) {
                 //      body[value[0]] = value[1]
                      
                 // }
- 
-                formData.forEach((value, key) => {
-                     body[key] = value;
-                });
-                postData(body,
-                     () => {
-                     statusMessage.textContent = successMessage;
-                     },
-                     (error) => {
-                     statusMessage.textContent = errorMessage;
-                     console.log(error);
-                });
- 
-                form.querySelectorAll('input').forEach((input1) => {
-                     input1.value = '';
-                });
+
+                const postData = (body) => {
+
+                    return new Promise ((resolve, reject) => {
+
+                         const request = new XMLHttpRequest();
+                        request.addEventListener('readystatechange', () => {
+                        
+                             if (request.readyState !== 4) {
+                                  return;
+                             }
+                             if (request.status === 200) {
+                                  resolve();
+                             } else {
+                                  reject(request.status);
+                             }
+                        });
+    
+                        request.open ('POST', './server.php');
+                        request.setRequestHeader('Content-Type', 'application/json');           
+    
+                        request.send(JSON.stringify(body));
+    
+                    });
+               };
+    
+               postData(body)
+                        .then(() => statusMessage.textContent = successMessage)
+                        .catch(() => statusMessage.textContent = errorMessage);
+
+               
+               formData.forEach((value, key) => {
+                    body[key] = value;
+               });
+
+               form.querySelectorAll('input').forEach((input1) => {
+                    input1.value = '';
+               });
  
            });
  
-           const postData = (body, outputData, errorData) => {
-                const request = new XMLHttpRequest();
-                request.addEventListener('readystatechange', () => {
-                    
-                     if (request.readyState !== 4) {
-                          return;
-                     }
-                     if (request.status === 200) {
-                          outputData();
-                     } else {
-                          errorData(request.status);
-                     }
-                });
- 
-                request.open ('POST', './server.php');
-                request.setRequestHeader('Content-Type', 'application/json');           
- 
-                request.send(JSON.stringify(body));
- 
-           }
+           
  
       };
  
