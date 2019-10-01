@@ -2,7 +2,7 @@ const commandChangePhoto = () => {
  
     const commandPhoto = document.querySelector('.command');
 
-    changePhoto = (target) => {
+    const changePhoto = (target) => {
 
          let defaultSrc = target.src;
          target.src = target.dataset.img;
@@ -10,21 +10,21 @@ const commandChangePhoto = () => {
     };
 
     commandPhoto.addEventListener('mouseover', (e) => {
-         target = e.target;
-         target = target.closest('.command__photo');
-         if (target) {
-              changePhoto(target);
-         }
+         let target = e.target;
+               target = target.closest('.command__photo');
+               if (target) {
+                    changePhoto(target);
+               }
 
          
     });
 
     commandPhoto.addEventListener('mouseout', (e) => {
-         target = e.target;
-         target = target.closest('.command__photo');
-         if (target) {
-              changePhoto(target);
-         }
+         let target = e.target;
+               target = target.closest('.command__photo');
+               if (target) {
+                    changePhoto(target);
+               }
 
          
     });

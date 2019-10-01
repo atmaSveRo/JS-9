@@ -5,11 +5,11 @@ const togglePopup = () => {
               popupBtn.forEach((elem) => {
                    elem.addEventListener('click', () => {
                         popup.style.display = 'block';
-                        if (screen.width >= 720) {
+                        if (document.documentElement.clientWidth >= 720) {
                         popupContent.style.opacity ="0.5";
                         setTimeout(function(){
                              popupContent.style.opacity ="1";
-                        }, 2000);
+                        }, 500);
                    } else {
                         popupContent.style.opacity ="1";
                         clearInterval();

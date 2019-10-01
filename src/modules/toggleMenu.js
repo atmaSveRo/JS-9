@@ -11,7 +11,7 @@ const toggleMenu = () => {
     // };
 
     body.addEventListener('click', (event) => {
-         target = event.target;
+         let target = event.target;
 
          if (target.classList.contains('close-btn')) {
               menu.classList.remove('active-menu');
