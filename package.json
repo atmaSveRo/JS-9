@@ -1,0 +1,31 @@
+{
+  "name": "bundle.js",
+  "version": "1.0.0",
+  "description": "дипломная работа на 9 потоке курса по JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atmaSveRo/JS-9.git"
+  },
+  "author": "Dronnikov Roman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atmaSveRo/JS-9/issues"
+  },
+  "homepage": "https://github.com/atmaSveRo/JS-9#readme",
+  "devDependencies": {
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "element-closest": "^3.0.1",
+    "es6-promise": "^4.2.8",
+    "fetch-polyfill": "^0.8.2",
+    "formdata-polyfill": "^3.0.19",
+    "nodelist-foreach-polyfill": "^1.2.0"
+  }
+}
