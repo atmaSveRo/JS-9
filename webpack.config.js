@@ -9,7 +9,7 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/dist'
     },
-    deServer: {
+    devServer: {
         overlay: true
     },
 };
