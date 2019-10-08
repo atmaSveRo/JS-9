@@ -6,13 +6,13 @@ import elementClosest from 'element-closest';
 elementClosest(window);
 
 import menu from './modules/menu';
+import modalWindow from './modules/modalWindow';
 // import arrowUp from './modules/arrowUp';
 // import burgerMenu from './modules/burgerMenu';
 // import calc from './modules/calc';
 // import carousel from './modules/carousel';
 // import gift from './modules/gift';
 // import slider from './modules/slider';
-// import modalWindow from './modules/modalWindow';
 // import promoCode from './modules/promoCode';
 // import sendForm from './modules/sendForm';
 
@@ -21,9 +21,11 @@ import menu from './modules/menu';
 
 menu();
 
-// //модальные окна
+//модальные окна
 
-// modalWindow();
+modalWindow('free_visit_form', '.open-popup');
+modalWindow('callback_form', '.btn.callback-btn');
+modalWindow('gift', '.fixed-gift');
 
 // //Отправка форм в модальных окнах
 
