@@ -2,7 +2,8 @@ const modalWindowModule = (idForm, btnIdForm) => {
 
 const formBtnElement = document.querySelector(btnIdForm),
     formIdElement = document.getElementById(idForm),
-    closeForm = document.querySelector('.popups');
+    closeForm = document.querySelector('.popups'),
+    stateHolderElement = formIdElement.querySelector(`[data-state]`);
 
 const onBtnClick = () => {
     if (formBtnElement === document.querySelector('.fixed-gift')) {
@@ -21,6 +22,9 @@ const switchMenu = (formIdElement) => {
 };
 
 const openRecall = (formIdElement) => {
+    if (stateHolderElement != null) {
+        stateHolderElement.setAttribute("data-state", "input")
+    }
     formIdElement.style.display = 'block';       
 };
 
