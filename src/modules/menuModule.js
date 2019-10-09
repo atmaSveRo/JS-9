@@ -1,4 +1,4 @@
-const menu = () => {
+const menuModule = () => {
 
     const listMenuElement = document.querySelector('.clubs-list > ul'),
         clubListBtn = document.querySelector('.clubs-list > p'),
@@ -33,4 +33,4 @@ const menu = () => {
     };
 };
 
-export default menu;
+export default menuModule;

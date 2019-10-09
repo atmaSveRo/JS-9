@@ -5,35 +5,40 @@ import 'nodelist-foreach-polyfill';
 import elementClosest from 'element-closest';
 elementClosest(window);
 
-import menu from './modules/menu';
-import modalWindow from './modules/modalWindow';
-// import arrowUp from './modules/arrowUp';
-// import burgerMenu from './modules/burgerMenu';
-// import calc from './modules/calc';
-// import carousel from './modules/carousel';
-// import gift from './modules/gift';
-// import slider from './modules/slider';
-// import promoCode from './modules/promoCode';
-// import sendForm from './modules/sendForm';
+import menuModule from './modules/menuModule';
+import modalWindowModule from './modules/modalWindowModule';
+import sendFormModule from './modules/sendFormModule';
+import formRuErrorModule from './modules/formRuErrorModule';
+// import arrowUpModule from './modules/arrowUpModule';
+// import burgerMenuModule from './modules/burgerMenuModule';
+// import calcModule from './modules/calcModule';
+// import carouselModule from './modules/carouselModule';
+// import sliderModule from './modules/sliderModule';
+// import promoCodeModule from './modules/promoCodeModule';
+
 
 
 //выпадающее меню
 
-menu();
+menuModule();
 
 //модальные окна
 
-modalWindow('free_visit_form', '.open-popup');
-modalWindow('callback_form', '.btn.callback-btn');
-modalWindow('gift', '.fixed-gift');
+modalWindowModule('free_visit_form', '.open-popup');
+modalWindowModule('callback_form', '.btn.callback-btn');
+modalWindowModule('gift', '.fixed-gift');
 
-// //Отправка форм в модальных окнах
+//Отправка форм в модальных окнах
 
-// sendForm();
+sendFormModule('form1', 'callback_form');
+sendFormModule('form2', 'free_visit_form');
+sendFormModule('banner-form');
+sendFormModule('card_order');
+sendFormModule('footer_form');
 
-// //подарок
+//ввод кириллицы
 
-// gift();
+formRuErrorModule();
 
 // //слайдер
 

@@ -1,4 +1,4 @@
-const modalWindow = (idForm, btnIdForm) => {
+const modalWindowModule = (idForm, btnIdForm) => {
 
 const formBtnElement = document.querySelector(btnIdForm),
     formIdElement = document.getElementById(idForm),
@@ -29,15 +29,18 @@ closeForm.addEventListener('click', (event) => {
     
     if (target.classList.contains('close-form')) {
         formIdElement.style.display = 'none';
-   } else {
 
+   } else if (target.classList.contains('close-btn')) {
+            formIdElement.style.display = 'none';
+
+   } else {
         target = target.closest('.form-content');
         if (!target) {
             formIdElement.style.display = 'none';
-        }
+        }      
    }  
 });
 
 };
 
-export default modalWindow;
+export default modalWindowModule;
