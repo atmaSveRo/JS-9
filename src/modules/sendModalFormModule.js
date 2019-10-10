@@ -1,4 +1,4 @@
-const sendFormModule = (item, idForm) => {
+const sendModalFormModule = (item, idForm) => {
 
     const errorMessage = 'Что-то пошло не так...',
         loadMessage = 'Загрузка...',
@@ -55,9 +55,9 @@ const sendFormModule = (item, idForm) => {
             body[key] = value;
        });
 
-       form.querySelectorAll('input').forEach((input1) => {
-            input1.value = '';
-       });
+       form.querySelectorAll('input:not([type="radio"])').forEach((input1) => {
+        input1.value = '';
+        });  
 
    });
 
@@ -65,4 +65,4 @@ const sendFormModule = (item, idForm) => {
 
 };
 
-export default sendFormModule;
+export default sendModalFormModule;

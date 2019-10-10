@@ -19,6 +19,20 @@
         [data-state="success"] [data-state-step]:not([data-state-step="success"]) {
             display: none;
         }
+
+        @media only screen and (max-width: 767px) {
+            .top-menu {
+                position: fixed;
+                top: 0;
+            }
+            .header-main {
+                margin-top: 50px;
+            }
+            .menu-button.hidden-large {
+                position: absolute;
+                left: 50%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,13 +84,13 @@
                 <li class="scroll"><a href="#footer">Контакты</a></li>
             </ul>
             <div class="menu-button hidden-large">
-                <img src="images/menu-button.png" alt="">
+                <img src="images/menu-button.png" alt="" class="burgerMenu">
             </div>
         </div>
     </nav>
-    <nav class="popup-menu hidden-large">
+    <nav class="popup-menu hidden-large" id="popupMenu">
         <div class="close-menu-btn">
-            <img src="images/delete.png" alt="">
+            <img src="images/delete.png" alt="" class="closeBtnMenu">
         </div>
         <ul>
             <li class="scroll"><a href="#clubs">Клубы</a></li>
@@ -342,7 +356,7 @@
                     </label>
                     </div>
                     <div class="price">
-                        <div class="price-message input-text"><input name="name" type="text" required
+                        <div class="price-message input-text"><input name="promocode" id="promocode" type="text" required
                                                                      placeholder="Промокод"></div>
                         <div class="price-message">Цена:</div>
                         <div class="price-message" id="price-total">2999</div>
@@ -415,8 +429,10 @@
                             </button>
                         </div>
                     </div>
+                    
                 </form>
             </div>
+            
         </div>
         <div class="footer-bottom">
             <div class="left">© Фитнес-центр «Тело», 2019. Все права защищены.</div>
@@ -484,11 +500,11 @@
     </div>
     <div class="popup" id="free_visit_form">
         <div class="overlay">
-            <div class="form-wrapper">
+            <div class="form-wrapper" data-state="input">
                 <div class="close-form">
                     <img src="images/close-icon.png" alt="close" class="close_icon">
                 </div>
-                <div class="form-content">
+                <div class="form-content" data-state-step="input">
                     <form name="free-visit-form" id="form2" action="#" method="post">
                         <h4>Записаться на визит</h4>
                         <input type="hidden" name="form_name" value=" Записаться на визит">
@@ -504,6 +520,30 @@
                     </form>
 
                 </div>
+                <!--  state error -->
+                <div data-state-step="error">
+                    <img src="/images/matt-icons_dialog-error.png" alt="">
+                </div>
+                <!--  state success -->
+                <div class="form-content" data-state-step="success">
+                    <h4>Спасибо!</h4>
+                    <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                    <button class="btn close-btn">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="thanks">
+        <div class="overlay">
+        </div>
+        <div class="form-wrapper">
+            <div class="close-form">
+                <img src="images/close-icon.png" alt="close" class="close_icon">
+            </div>
+            <div class="form-content">
+                <h4>Спасибо!</h4>
+                <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                <button class="btn close-btn">OK</button>
             </div>
         </div>
     </div>

@@ -7,14 +7,14 @@ elementClosest(window);
 
 import menuModule from './modules/menuModule';
 import modalWindowModule from './modules/modalWindowModule';
-import sendFormModule from './modules/sendFormModule';
+import sendModalFormModule from './modules/sendModalFormModule';
 import formRuErrorModule from './modules/formRuErrorModule';
+import burgerMenuModule from './modules/burgerMenuModule';
+import calcModule from './modules/calcModule';
 // import arrowUpModule from './modules/arrowUpModule';
-// import burgerMenuModule from './modules/burgerMenuModule';
-// import calcModule from './modules/calcModule';
 // import carouselModule from './modules/carouselModule';
 // import sliderModule from './modules/sliderModule';
-// import promoCodeModule from './modules/promoCodeModule';
+
 
 
 
@@ -30,15 +30,21 @@ modalWindowModule('gift', '.fixed-gift');
 
 //Отправка форм в модальных окнах
 
-sendFormModule('form1', 'callback_form');
-sendFormModule('form2', 'free_visit_form');
-sendFormModule('banner-form');
-sendFormModule('card_order');
-sendFormModule('footer_form');
+sendModalFormModule('form1', 'callback_form');
+sendModalFormModule('form2', 'free_visit_form');
+// sendFormModule('banner-form');
+// sendFormModule('card_order');
+// sendFormModule('footer_form');
 
 //ввод кириллицы
 
 formRuErrorModule();
+
+burgerMenuModule();
+
+//калькулятор
+
+calcModule();
 
 // //слайдер
 
@@ -48,18 +54,6 @@ formRuErrorModule();
 
 // carousel();
 
-// //калькулятор
-
-// calc();
-
-// //бургер меню
-
-// burgerMenu();
-
 // //появление стрелки
 
 // arrowUp();
-
-// //промокод
-
-// promoCode();

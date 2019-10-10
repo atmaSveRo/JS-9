@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/style.min.css">
+    <style>
+         [data-state="input"] [data-state-step]:not([data-state-step="input"]) {
+            display: none;
+        }
+        [data-state="error"] [data-state-step]:not([data-state-step="error"]) {
+            display: none;
+        }
+        [data-state="success"] [data-state-step]:not([data-state-step="success"]) {
+            display: none;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .top-menu {
+                position: fixed;
+                top: 0;
+            }
+            .header-main {
+                margin-top: 50px;
+            }
+            .menu-button.hidden-large {
+                position: absolute;
+                left: 50%;
+            }
+        }
+    </style>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
@@ -61,13 +86,13 @@
                 <li class="scroll"><a href="#footer">Контакты</a></li>
             </ul>
             <div class="menu-button hidden-large">
-                <img src="images/menu-button.png" alt="">
+                <img src="images/menu-button.png" alt="" class="burgerMenu">
             </div>
         </div>
     </nav>
-    <nav class="popup-menu hidden-large">
+    <nav class="popup-menu hidden-large" id="popupMenu">
         <div class="close-menu-btn">
-            <img src="images/delete.png" alt="">
+            <img src="images/delete.png" alt="" class="closeBtnMenu">
         </div>
         <ul>
             <li class="scroll"><a href="#clubs">Клубы</a></li>
@@ -511,16 +536,17 @@
     <div class="popup" id="callback_form">
         <div class="overlay">
         </div>
-        <div class="form-wrapper">
+        <div class="form-wrapper" data-state="input">
             <div class="close-form">
                 <img src="images/close-icon.png" alt="close" class="close_icon">
             </div>
-            <div class="form-content">
+            <div class="form-content" data-state-step="input">
+                <!--  state input -->
                 <form name="callback-form" id="form1" action="#" method="post">
                     <h4>Обратный звонок</h4>
                     <input type="hidden" name="form_name" value=" Обратный звонок">
                     <!--  <input type="hidden" name="club" value="<?=$_GET['club-name']?>"> -->
-                    <p class="input-text"><input name="name" class="input-text1" type="text" required placeholder="Ваше имя..."></p>
+                    <p class="input-text"><input name="name" class="input-text1" class="input-text1" type="text" required placeholder="Ваше имя..."></p>
                     <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form1-phone" required
                                                 placeholder="Ваш номер телефона..."></p>
                     <p class="personal-data">
@@ -530,32 +556,51 @@
                     </p>
                     <button name="send1" class="btn btn-send" type="submit">Перезвоните мне</button>
                 </form>
-
+            </div>
+            <!--  state error -->
+            <div data-state-step="error">
+                <img src="/images/matt-icons_dialog-error.png" alt="">
+            </div>
+            <!--  state success -->
+            <div class="form-content" data-state-step="success">
+                <h4>Спасибо!</h4>
+                <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                <button class="btn close-btn">OK</button>
             </div>
         </div>
     </div>
     <div class="popup" id="free_visit_form">
         <div class="overlay">
-        </div>
-        <div class="form-wrapper">
-            <div class="close-form">
-                <img src="images/close-icon.png" alt="close" class="close_icon">
-            </div>
-            <div class="form-content">
-                <form name="free-visit-form" id="form2" action="#" method="post">
-                    <h4>Записаться на визит</h4>
-                    <input type="hidden" name="form_name" value=" Записаться на визит">
-                    <p class="input-text"><input name="name" class="input-text1" type="text" required placeholder="Ваше имя..."></p>
-                    <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form2-phone" required
-                                                placeholder="Ваш номер телефона..."></p>
-                    <p class="personal-data">
-                        <input type="checkbox" required id="check2"><label for="check2">Я согласен на обработку <br>персональных
-                        данных</label>
+            <div class="form-wrapper" data-state="input">
+                <div class="close-form">
+                    <img src="images/close-icon.png" alt="close" class="close_icon">
+                </div>
+                <div class="form-content" data-state-step="input">
+                    <form name="free-visit-form" id="form2" action="#" method="post">
+                        <h4>Записаться на визит</h4>
+                        <input type="hidden" name="form_name" value=" Записаться на визит">
+                        <p class="input-text"><input name="name" class="input-text1" type="text" required placeholder="Ваше имя..."></p>
+                        <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form2-phone" required
+                                                    placeholder="Ваш номер телефона..."></p>
+                        <p class="personal-data">
+                            <input type="checkbox" required id="check2"><label for="check2">Я согласен на обработку <br>персональных
+                            данных</label>
 
-                    </p>
-                    <button name="send1" class="btn btn-send" type="submit">записаться</button>
-                </form>
+                        </p>
+                        <button name="send1" class="btn btn-send" type="submit">записаться</button>
+                    </form>
 
+                </div>
+                <!--  state error -->
+                <div data-state-step="error">
+                    <img src="/images/matt-icons_dialog-error.png" alt="">
+                </div>
+                <!--  state success -->
+                <div class="form-content" data-state-step="success">
+                    <h4>Спасибо!</h4>
+                    <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                    <button class="btn close-btn">OK</button>
+                </div>
             </div>
         </div>
     </div>
