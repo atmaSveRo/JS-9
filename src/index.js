@@ -11,6 +11,7 @@ import sendModalFormModule from './modules/sendModalFormModule';
 import formRuErrorModule from './modules/formRuErrorModule';
 import burgerMenuModule from './modules/burgerMenuModule';
 import arrowUpModule from './modules/arrowUpModule';
+import fixMenuModule from './modules/fixMenuModule';
 import calcModule from './modules/calcModule';
 // import carouselModule from './modules/carouselModule';
 // import sliderModule from './modules/sliderModule';
@@ -45,6 +46,10 @@ burgerMenuModule();
 //появление стрелки
 
 arrowUpModule();
+
+//fix menu
+
+fixMenuModule();
 
 //калькулятор
 
