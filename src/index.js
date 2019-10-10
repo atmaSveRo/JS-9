@@ -10,8 +10,8 @@ import modalWindowModule from './modules/modalWindowModule';
 import sendModalFormModule from './modules/sendModalFormModule';
 import formRuErrorModule from './modules/formRuErrorModule';
 import burgerMenuModule from './modules/burgerMenuModule';
+import arrowUpModule from './modules/arrowUpModule';
 import calcModule from './modules/calcModule';
-// import arrowUpModule from './modules/arrowUpModule';
 // import carouselModule from './modules/carouselModule';
 // import sliderModule from './modules/sliderModule';
 
@@ -42,6 +42,10 @@ formRuErrorModule();
 
 burgerMenuModule();
 
+//появление стрелки
+
+arrowUpModule();
+
 //калькулятор
 
 calcModule();
@@ -54,6 +58,4 @@ calcModule();
 
 // carousel();
 
-// //появление стрелки
 
-// arrowUp();
