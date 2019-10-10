@@ -10,11 +10,11 @@ import modalWindowModule from './modules/modalWindowModule';
 import sendModalFormModule from './modules/sendModalFormModule';
 import formRuErrorModule from './modules/formRuErrorModule';
 import burgerMenuModule from './modules/burgerMenuModule';
-import arrowUpModule from './modules/arrowUpModule';
 import fixMenuModule from './modules/fixMenuModule';
+import arrowUpModule from './modules/arrowUpModule';
 import calcModule from './modules/calcModule';
 // import carouselModule from './modules/carouselModule';
-// import sliderModule from './modules/sliderModule';
+import sliderModule from './modules/sliderModule';
 
 
 
@@ -41,23 +41,25 @@ sendModalFormModule('form2', 'free_visit_form');
 
 formRuErrorModule();
 
+//burgerMenu
+
 burgerMenuModule();
-
-//появление стрелки
-
-arrowUpModule();
 
 //fix menu
 
 fixMenuModule();
 
+//появление стрелки
+
+arrowUpModule();
+
 //калькулятор
 
 calcModule();
 
-// //слайдер
+//слайдер
 
-// slider();
+sliderModule();
 
 // //карусель
 

@@ -678,6 +678,42 @@ html#schelkovo .advantages .wrapper {
     justify-content: center
 }
 
+
+/* 
+.mainSlider-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: 5; }
+    .mainSlider-dots .dot {
+      cursor: pointer;
+      height: 16px;
+      width: 16px;
+      margin: 0 10px;
+      border-radius: 50%;
+      border: solid #fff;
+      display: inline-block;
+      -webkit-transition: background-color, -webkit-transform 0.4s ease;
+      transition: background-color, -webkit-transform 0.4s ease;
+      transition: background-color, transform 0.4s ease;
+      transition: background-color, transform 0.4s ease, -webkit-transform 0.4s ease; }
+      .mainSlider-dots .dot-active {
+        background-color: #fedf53;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2); }
+      .mainSlider-dots .dot:hover {
+        background-color: #fedf53;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2); } */
+
 @media only screen and (max-width:1199px) {
 
     html#mozaika .advantages .wrapper,
@@ -2673,7 +2709,11 @@ p.personal-data input[type=checkbox]:checked+label:before {
     }
 }
 
-    .sticky {
-        position: fixed;
-        top: 0
-    }
+ 
+.sticky {
+    position: fixed;
+    top: 0
+}
+
+.mainSlider-active {
+    display: block }
