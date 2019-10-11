@@ -2254,6 +2254,14 @@ p.personal-data input[type=checkbox]:checked+label:before {
     margin-top: 30px
 }
 
+#error p {
+    font-size: 20px;
+    width: 90%;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 30px
+}
+
 #thanks .form-content .close-btn {
     margin-top: 15px;
     text-transform: uppercase;
