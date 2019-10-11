@@ -93,7 +93,7 @@
         </div>
         <div class="wrapper">
             <div class="main-slider">
-                <div class="slide">
+                <div class="slide mainSlider-active">
                     <div class="slide-text">
                         <div class="offer-head">
                             <p class="top">2 круглосуточные</p>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide type2" style="display: none">
+                <div class="slide type2">
                     <div class="slide-text">
                         <div class="offer-head">
                             <p class="top">открытый чемпионат</p>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide" style="display: none">
+                <div class="slide">
                     <div class="slide-text">
                         <div class="offer-head">
                             <p class="top">без выходных</p>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide type2 type3" style="display: none">
+                <div class="slide type2 type3">
                     <div class="slide-text">
                         <div class="offer-head">
                             <p class="top">Круглосуточно</p>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide type2"  style="display: none">
+                <div class="slide type2">
                     <div class="slide-text">
                         <div class="offer-head">
                             <p class="top">Пробное занятие</p>
@@ -226,7 +226,7 @@
                 <input type="tel" name="phone" id="phone" class="form-phone" required placeholder="Ваш номер телефона...">
                 <button name="send" class="btn" type="submit">Записаться</button>
                 <p class="personal-data">
-                    <input type="checkbox" required id="check1"><label for="check1">Я согласен на обработку персональных
+                    <input type="checkbox" id="check1" name="isAgree"><label for="check1">Я согласен на обработку персональных
                     данных</label>
                 </p>
             </form>
@@ -287,7 +287,10 @@
                 <img src="images/services-slider/yoga.jpg" alt="Йога">
                 <h6>Йога</h6>
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
+                
             </div>
+            <div class="slider-left" style="display: block;"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+            <div class="slider-right" style="display: block;"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
         </div>
     </div>
 </section>
@@ -295,7 +298,7 @@
     <h2>Фотогалерея</h2>
     <div class="gallery-bg">
         <div class="wrapper">
-            <div class="gallery-slider">
+            <ul class="gallery-slider">
                 <div class="slide">
                     <img src="images/gallery/photo1.jpg" alt="">
                 </div>
@@ -311,8 +314,18 @@
                 <div class="slide">
                     <img src="images/gallery/photo5.jpg" alt="">
                 </div>
-            </div>
-        </div>
+                <div class="slider-left" style="display: block;"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div class="slider-right" style="display: block;"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                <!-- <ul class="sliderGallery-dots">
+                    <li class="dotGallery dotGallery-active"></li>
+                    <li class="dotGallery"></li>
+                    <li class="dotGallery"></li>
+                    <li class="dotGallery"></li>
+                    <li class="dotGallery"></li>
+                    <li class="dotGallery"></li>
+                </ul> -->
+            </ul>
+        </ul>
     </div>
 </section>
 <section id="cards">
@@ -350,7 +363,7 @@
                     </label>
                     </div>
                     <div class="price">
-                        <div class="price-message input-text"><input name="promocode" id="promocode" type="text" required
+                        <div class="price-message input-text"><input name="promocode" id="promocode" type="text"
                                                                      placeholder="Промокод"></div>
                         <div class="price-message">Цена:</div>
                         <div class="price-message" id="price-total">2999</div>
@@ -360,12 +373,12 @@
                     <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form-phone" required
                                                  placeholder="Ваш номер телефона..."></p>
                     <p class="personal-data">
-                        <input type="checkbox" required id="card_check"><label for="card_check">Я согласен на обработку
+                        <input type="checkbox" name="isAgree" id="card_check"><label for="card_check">Я согласен на обработку
                         персональных данных</label>
                     </p>
                     <p class="submit">
-                        <button type="submit" class="btn card-order-btn">Забронировать карту</button>
-                    </p>
+                        <button type="submit" name="submit" id="submit" class="btn card-order-btn">Забронировать карту</button>
+                    </p>                   
                 </form>
             </div>
         </div>
@@ -399,7 +412,7 @@
                         <div class="choose-club">
                             <h5>Выбрать клуб</h5>
                             <div class="club">
-                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika"><label
+                                <input type="radio" id="footer_leto_mozaika" name="club-name" value="mozaika" checked><label
                                     for="footer_leto_mozaika">
                                 <h6>Тело «Мозаика»</h6>
                                 <p>Россия, Москва, 7-я Кожуховская ул.,&nbsp;9</p>
@@ -421,6 +434,9 @@
 
                             <button class="btn callback-btn" type="submit" data-popup="#callback_form">Перезвоните мне
                             </button>
+                            <p class="personal-data">
+                                <input type="checkbox" name="isAgree" id="card_check_foot"><label for="card_check_foot">Я согласен на обработку</br>персональных данных</label>
+                            </p>
                         </div>
                     </div>
                     
@@ -473,7 +489,7 @@
                     <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form1-phone" required
                                                 placeholder="Ваш номер телефона..."></p>
                     <p class="personal-data">
-                        <input type="checkbox" required id="check"><label for="check">Я согласен на обработку <br>персональных
+                        <input type="checkbox" name="isAgree" id="check"><label for="check">Я согласен на обработку <br>персональных
                         данных</label>
 
                     </p>
@@ -487,7 +503,7 @@
 
             </div>
             <!--  state success -->
-            <div class="form-content" data-state-step="success">
+            <div class="form-content" data-state-step="success" id="success">
                 <h4>Спасибо!</h4>
                 <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
                 <button class="btn close-btn">OK</button>
@@ -508,7 +524,7 @@
                         <p class="input-text"><input type="tel" name="phone" class="form-phone" id="callback_form2-phone" required
                                                     placeholder="Ваш номер телефона..."></p>
                         <p class="personal-data">
-                            <input type="checkbox" required id="check2"><label for="check2">Я согласен на обработку <br>персональных
+                            <input type="checkbox" name="isAgree" id="check2"><label for="check2">Я согласен на обработку <br>персональных
                             данных</label>
 
                         </p>
@@ -522,7 +538,7 @@
                     <img src="/images/matt-icons_dialog-error.png" alt="">
                 </div>
                 <!--  state success -->
-                <div class="form-content" data-state-step="success">
+                <div class="form-content" data-state-step="success" id="success">
                     <h4>Спасибо!</h4>
                     <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
                     <button class="btn close-btn">OK</button>
@@ -540,6 +556,20 @@
             <div class="form-content">
                 <h4>Спасибо!</h4>
                 <p>Ваша заявка отправлена. <br> Мы свяжемся с вами в ближайшее время.</p>
+                <button class="btn close-btn">OK</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="error">
+        <div class="overlay">
+        </div>
+        <div class="form-wrapper">
+            <div class="close-form">
+                <img src="images/close-icon.png" alt="close" class="close_icon">
+            </div>
+            <div class="form-content">
+                <h4>Упс!</h4>
+                <p>Что-то пошло не так...</p>
                 <button class="btn close-btn">OK</button>
             </div>
         </div>

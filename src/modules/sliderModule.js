@@ -1,25 +1,56 @@
-const sliderModule = () => {
+const sliderModule = (sliderClass, slidesCount) => {
 
-        const slide = document.querySelectorAll('.main-slider > .slide');
-        console.log('slide: ', slide);
-        
-        let currentSlide = 0;
-   
-        const autoPlaySlide = () => {
-            for (let i = 0; i < slide.length; i++) {
-            slide[i].classList.remove('mainSlider-active');
-    
-   
-        };
-    }
-    
-        const startSlide = () => {
-            setInterval(autoPlaySlide, 2000);
-        };
+    const slide = document.querySelectorAll(sliderClass + ' .slide'),
+        leftBtn = document.querySelector(sliderClass + ' .slider-left'),
+        rightBtn = document.querySelector(sliderClass + ' .slider-right');
 
-        startSlide();
+    let currentSlide = 0;
 
-}
+    const setSlidesActive = () => {
+        for (let i = 0; i < slidesCount; i++) {
+            slide[currentSlide + i].classList.add('mainSlider-active');
+        }
+    };
+    const setSlidesInactive = () => {
+        for (let i = 0; i < slidesCount; i++) {
+            slide[currentSlide + i].classList.remove('mainSlider-active');
+        }
+    };
+    setSlidesActive();
+    const swipeToRightSlide = () => {
+        setSlidesInactive();
+        currentSlide++;
+        if (currentSlide >= (slide.length - slidesCount + 1)) {
+            currentSlide = 0
+        }
+        setSlidesActive()
+    };
+    const swipeToLeftSlide = () => {
+        setSlidesInactive();
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = slide.length - slidesCount
+        }
+        setSlidesActive()
+    };
+
+    const startSlide = () => {
+        setInterval(swipeToRightSlide, 2000);
+    };
+
+    leftBtn && leftBtn.addEventListener("click", () => {
+        swipeToLeftSlide()
+    });
+
+    rightBtn && rightBtn.addEventListener("click", () => {
+        swipeToRightSlide()
+    });
+
+
+
+    startSlide();
+
+};
 
 
 export default sliderModule;

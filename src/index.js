@@ -12,9 +12,9 @@ import formRuErrorModule from './modules/formRuErrorModule';
 import burgerMenuModule from './modules/burgerMenuModule';
 import fixMenuModule from './modules/fixMenuModule';
 import arrowUpModule from './modules/arrowUpModule';
-import calcModule from './modules/calcModule';
-// import carouselModule from './modules/carouselModule';
+import sendFormModule from './modules/sendFormModule';
 import sliderModule from './modules/sliderModule';
+import calcModule from './modules/calcModule';
 
 
 
@@ -33,9 +33,6 @@ modalWindowModule('gift', '.fixed-gift');
 
 sendModalFormModule('form1', 'callback_form');
 sendModalFormModule('form2', 'free_visit_form');
-// sendFormModule('banner-form');
-// sendFormModule('card_order');
-// sendFormModule('footer_form');
 
 //ввод кириллицы
 
@@ -53,16 +50,20 @@ fixMenuModule();
 
 arrowUpModule();
 
-//калькулятор
+//sendForm
 
-calcModule();
+sendFormModule('banner-form');
+sendFormModule('card_order');
+sendFormModule('footer_form');
 
 //слайдер
 
-sliderModule();
+sliderModule(".main-slider", 1);
+sliderModule(".services-slider", 5);
+sliderModule(".gallery-slider", 1);
 
-// //карусель
+//калькулятор
 
-// carousel();
+calcModule();
 
 

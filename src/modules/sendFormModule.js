@@ -1,12 +1,31 @@
-const sendModalFormModule = (item, idForm) => {
+const sendFormModule = (item) => {
 
-    const errorMessage = 'Что-то пошло не так...',
-        loadMessage = 'Загрузка...',
-        formIdElement = document.getElementById(idForm),
-        successMessage = 'Спасибо, мы скоро с Вами свяжемся"',
-        stateHolderElement = formIdElement && formIdElement.querySelector(`[data-state]`);
+    const loadMessage = 'Загрузка...',
+        errorForm = document.getElementById('error'),
+        closeForm = document.querySelector('.popups'),
+        successForm = document.getElementById('thanks');
 
     const form = document.getElementById(item);
+
+    closeForm.addEventListener('click', (event) => {
+        let target = event.target;
+        
+        if (target.classList.contains('close-form')) {
+            errorForm.style.display = 'none';
+            successForm.style.display = 'none';
+    
+        } else if (target.classList.contains('close-btn')) {
+            errorForm.style.display = 'none';
+            successForm.style.display = 'none';
+    
+        } else {
+            target = target.closest('.form-content');
+            if (!target) {
+                errorForm.style.display = 'none';
+                successForm.style.display = 'none';
+            }      
+        }  
+    });
 
     const statusMessage = document.createElement('div')
         statusMessage.style.cssText = 'font-size: 10rem';
@@ -45,14 +64,15 @@ const sendModalFormModule = (item, idForm) => {
                     if (response.status !== 200) {
                         throw new Error('status network not 200')
                     }
-                    statusMessage.textContent = successMessage
-                    stateHolderElement.setAttribute("data-state", "success")
+                    successForm.style.display = 'block'
+    
                 })
                 .catch((error) => {
-                    statusMessage.textContent = errorMessage
+                    errorForm.style.display = 'block' 
                     console.error(error);
-                    stateHolderElement.setAttribute("data-state", "error")
+                    
                 });
+
 
        
        formData.forEach((value, key) => {
@@ -69,4 +89,4 @@ const sendModalFormModule = (item, idForm) => {
 
 };
 
-export default sendModalFormModule;
+export default sendFormModule;
