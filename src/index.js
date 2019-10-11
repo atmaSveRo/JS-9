@@ -15,7 +15,7 @@ import arrowUpModule from './modules/arrowUpModule';
 import sendFormModule from './modules/sendFormModule';
 import sliderModule from './modules/sliderModule';
 import calcModule from './modules/calcModule';
-// import sliderBtnModule from './modules/sliderBtnModule';
+import sliderBtnModule from './modules/sliderBtnModule';
 
 
 
@@ -68,8 +68,8 @@ sliderModule(".gallery-slider", 1);
 
 calcModule();
 
-// //slider button
+//slider button
 
-// sliderBtnModule();
+sliderBtnModule();
 
 

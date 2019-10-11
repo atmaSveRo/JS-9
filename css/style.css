@@ -2735,7 +2735,7 @@ p.personal-data input[type=checkbox]:checked+label:before {
     border-radius: 50%;
     cursor: pointer;
 }
-/* 
+
 .sliderGallery-dots {
     position: absolute;
     bottom: 20px;
@@ -2770,4 +2770,4 @@ p.personal-data input[type=checkbox]:checked+label:before {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
- */
+
