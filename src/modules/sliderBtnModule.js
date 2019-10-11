@@ -1,23 +1,18 @@
-const sliderBtnModule = () => {
+const sliderBtnModule = (sliderSelector, setCurrentSlide) => {
 
-    const dot = document.querySelectorAll('.sliderGallery-dots > li'),
-        slide = document.querySelectorAll('.gallery-slider > .slide'),
-        slider = document.querySelector('.gallery-slider');
-
+    const dot = document.querySelectorAll(sliderSelector + ' .dots > li'),
+        slide = document.querySelectorAll(sliderSelector + ' > .slide')
+    if (!dot.length) {
+        return
+    }
     let currentSlide = 0;
 
     const prevSlide = () => {
-        
-        for(let i=0; i<dot.length; i++){
-            dot[currentSlide].classList.remove('dotGallery-active');
-        }
+        dot[currentSlide].classList.remove('dotGallery-active');
     };
 
     const nextSlide = () => {
-
-        for(let i=0; i<dot.length; i++){
-            dot[currentSlide].classList.add('dotGallery-active');
-        }
+        dot[currentSlide].classList.add('dotGallery-active');
     };
 
     const autoPlaySlide = () => {
@@ -36,46 +31,17 @@ const sliderBtnModule = () => {
         
     };
 
-    slider.addEventListener('click', (event) => {
-        event.preventDefault();
+    startSlide(2000);
 
-        let target = event.target;
+    for(let i=0; i<dot.length; i++){
+        dot[i].addEventListener("click", () => {
+            prevSlide();
+            currentSlide = i;
+            setCurrentSlide(i);
+            nextSlide();
+        })
+    }
 
-        if (!target.matches('.dotGallery')) {
-            return;
-        }
-
-        prevSlide();
-
-        
-        if (target.matches('#arrow-right')) {
-            currentSlide++;
-       } else if (target.matches('#arrow-left')) {
-            currentSlide--;
-       } else if (target.matches('.dot')) {
-            dot.forEach((elem, index) => {
-                 if (elem === target) {
-                      currentSlide = index;
-                 }
-            });
-       }
-
-        if (currentSlide >= slide.length) {
-            currentSlide = 0;
-        }
-
-        if (currentSlide < 0) {
-            currentSlide = slide.length -1;
-        }
-        
-        nextSlide();
-
-    });
-
-
-   startSlide(2000);
-
-    
 };
 
 export default sliderBtnModule;

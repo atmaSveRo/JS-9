@@ -68,8 +68,4 @@ sliderModule(".gallery-slider", 1);
 
 calcModule();
 
-//slider button
-
-sliderBtnModule();
-
 

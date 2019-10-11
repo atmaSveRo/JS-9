@@ -1,3 +1,5 @@
+import sliderBtnModule from "./sliderBtnModule";
+
 const sliderModule = (sliderClass, slidesCount) => {
 
     const slide = document.querySelectorAll(sliderClass + ' .slide'),
@@ -51,6 +53,13 @@ const sliderModule = (sliderClass, slidesCount) => {
 
     startSlide();
 
+    //slider button
+
+    sliderBtnModule(sliderClass, (newCurrentSlide) => {
+        setSlidesInactive();
+        currentSlide = newCurrentSlide;
+        setSlidesActive();
+    });
 
 };
 
