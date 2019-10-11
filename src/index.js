@@ -15,7 +15,7 @@ import arrowUpModule from './modules/arrowUpModule';
 import sendFormModule from './modules/sendFormModule';
 import sliderModule from './modules/sliderModule';
 import calcModule from './modules/calcModule';
-import sliderBtnModule from './modules/sliderBtnModule';
+import sliderWithDotsModule from './modules/sliderWithDotsModule';
 
 
 
@@ -62,10 +62,13 @@ sendFormModule('footer_form');
 
 sliderModule(".main-slider", 1);
 sliderModule(".services-slider", 5);
-sliderModule(".gallery-slider", 1);
-
+// 
 //калькулятор
 
 calcModule();
+
+//sliderWithDotsModule
+
+sliderWithDotsModule(".gallery-slider", 1);
 
 
