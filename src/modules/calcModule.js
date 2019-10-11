@@ -9,7 +9,7 @@ const inputIds = ['m1', 'm2', 'm3', 'm4', 'card_leto_mozaika', 'card_leto_schelk
     showPriceElement = document.getElementById('price-total');
     
     inputElements.forEach((elem) => {
-        elem.addEventListener('change', (event) => {
+        elem && elem.addEventListener('change', (event) => {
             recalculatePrice();
             
         })

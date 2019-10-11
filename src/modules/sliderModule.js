@@ -36,8 +36,9 @@ const sliderModule = (sliderClass, slidesCount) => {
 
     const startSlide = () => {
         setInterval(swipeToRightSlide, 2000);
+        
     };
-
+    
     leftBtn && leftBtn.addEventListener("click", () => {
         swipeToLeftSlide()
     });
@@ -50,7 +51,7 @@ const sliderModule = (sliderClass, slidesCount) => {
 
     startSlide();
 
-};
 
+};
 
 export default sliderModule;
